@@ -33,10 +33,8 @@ const Hero = () => {
 
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%202.png" alt="Logo" className="w-400 h-400 mx-auto mb-1 transition-all duration-200 ease-out object-contain" />
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-            Let us help, let us handle your needs
-          </h1>
+          <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%202.png" alt="Logo" className="w-400 h-400 mx-auto mb-2 transition-all duration-200 ease-out object-contain" />
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">LET US HELP</h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             We transform your ideas into reality with cutting-edge solutions
           </p>
