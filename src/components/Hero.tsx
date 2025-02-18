@@ -26,13 +26,13 @@ const Hero = () => {
       let startTime: number;
       const animate = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
-        const progress = (timestamp - startTime) / 1000; // Convert to seconds
+        const progress = (timestamp - startTime) / 3000; // Slowed down by dividing by 3000 instead of 1000
         
         if (logoRef.current) {
-          // Increased rotation range and added combined movements
-          const rotateX = Math.sin(progress) * 12 + Math.cos(progress * 0.5) * 8; // More pronounced vertical tilt
-          const rotateY = Math.cos(progress * 1.2) * 15 + Math.sin(progress * 0.7) * 10; // More pronounced horizontal swing
-          const translateZ = Math.sin(progress * 0.8) * 20; // Adding depth movement
+          // Slower but still pronounced movements
+          const rotateX = Math.sin(progress * 0.4) * 12 + Math.cos(progress * 0.2) * 8; // Slowed vertical tilt
+          const rotateY = Math.cos(progress * 0.5) * 15 + Math.sin(progress * 0.3) * 10; // Slowed horizontal swing
+          const translateZ = Math.sin(progress * 0.3) * 20; // Slowed depth movement
           
           logoRef.current.style.transform = `
             perspective(1000px) 
