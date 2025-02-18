@@ -1,8 +1,11 @@
+
 import { useEffect, useRef, useState } from "react";
+
 const Hero = () => {
   const logoRef = useRef<HTMLImageElement>(null);
   const [currentWord, setCurrentWord] = useState("make");
   const words = ["make", "do", "build", "develop", "design", "connect", "handle"];
+  
   useEffect(() => {
     let currentIndex = 0;
     const interval = setInterval(() => {
@@ -14,25 +17,50 @@ const Hero = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (logoRef.current) {
-        const {
-          left,
-          top,
-          width,
-          height
-        } = logoRef.current.getBoundingClientRect();
-        const centerX = left + width / 2;
-        const centerY = top + height / 2;
-        const rotateX = (e.clientY - centerY) / 20;
-        const rotateY = -(e.clientX - centerX) / 20;
-        logoRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      }
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    const isMobile = window.innerWidth < 768; // md breakpoint
+    
+    if (isMobile && logoRef.current) {
+      // Automatic animation for mobile
+      let startTime: number;
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const progress = (timestamp - startTime) / 1000; // Convert to seconds
+        
+        if (logoRef.current) {
+          const rotateX = Math.sin(progress) * 5; // 5 degree max rotation
+          const rotateY = Math.cos(progress) * 5; // 5 degree max rotation
+          logoRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+        
+        requestAnimationFrame(animate);
+      };
+      
+      requestAnimationFrame(animate);
+    } else {
+      // Desktop mouse movement handling
+      const handleMouseMove = (e: MouseEvent) => {
+        if (logoRef.current) {
+          const {
+            left,
+            top,
+            width,
+            height
+          } = logoRef.current.getBoundingClientRect();
+          const centerX = left + width / 2;
+          const centerY = top + height / 2;
+          const rotateX = (e.clientY - centerY) / 20;
+          const rotateY = -(e.clientX - centerX) / 20;
+          logoRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+      };
+      
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
   }, []);
+
   return <>
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6">
         {/* Animated Background Blobs */}
