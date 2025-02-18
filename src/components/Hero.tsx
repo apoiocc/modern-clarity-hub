@@ -1,30 +1,28 @@
-
 import { useEffect, useRef } from "react";
-
 const Hero = () => {
   const logoRef = useRef<HTMLImageElement>(null);
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (logoRef.current) {
-        const { left, top, width, height } = logoRef.current.getBoundingClientRect();
+        const {
+          left,
+          top,
+          width,
+          height
+        } = logoRef.current.getBoundingClientRect();
         const centerX = left + width / 2;
         const centerY = top + height / 2;
-        
+
         // Calculate the angle for rotation based on mouse position
         const rotateX = (e.clientY - centerY) / 20;
         const rotateY = -(e.clientX - centerX) / 20;
-        
         logoRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       }
     };
-
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  return (
-    <>
+  return <>
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background Blobs */}
         <div className="absolute inset-0 overflow-hidden">
@@ -35,12 +33,7 @@ const Hero = () => {
 
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <img
-            ref={logoRef}
-            src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%202.png"
-            alt="Logo"
-            className="w-96 h-96 mx-auto mb-8 transition-all duration-200 ease-out"
-          />
+          <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%202.png" alt="Logo" className="w-400 h-400 mx-auto mb-1 transition-all duration-200 ease-out object-contain" />
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             Let us help, let us handle your needs
           </h1>
@@ -95,8 +88,6 @@ const Hero = () => {
           <p className="text-lg text-gray-600">Content for Contact section</p>
         </div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default Hero;
