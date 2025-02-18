@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 const NavBar = () => {
@@ -26,7 +25,7 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <img src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" alt="Logo" className="h-20 w-auto" />
+            <img src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" alt="Logo" className="h-15 w-auto object-scale-down" />
           </div>
           
           {/* Desktop Menu */}
