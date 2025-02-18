@@ -83,8 +83,12 @@ const Hero = () => {
           <div className="w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] mx-auto mb-8 sm:mb-12 overflow-hidden">
             <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" alt="Logo" className="w-full h-full transition-all duration-200 ease-out object-contain" />
           </div>
-          <h1 className="sm:text-4xl md:text-6xl text-gray-900 mb-4 sm:mb-6 tracking-tight whitespace-nowrap my-[7px] mx-0 px-0 text-3xl font-extrabold">
-            We'll <span key={currentWord} className="animate-slide-up">{currentWord}</span> it for you.
+          <h1 className="sm:text-4xl md:text-6xl text-gray-900 mb-4 sm:mb-6 tracking-tight flex items-center justify-center gap-2 text-3xl font-extrabold">
+            <span>We'll</span>
+            <span key={currentWord} className="animate-slide-up inline-block min-w-[80px] sm:min-w-[120px] text-center transition-all duration-300 ease-in-out">
+              {currentWord}
+            </span>
+            <span>it for you.</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             We transform your ideas into reality with cutting-edge solutions

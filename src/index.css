@@ -51,7 +51,7 @@
 @keyframes slideUpAndFade {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
@@ -61,15 +61,9 @@
 
 .animate-slide-up {
   animation: slideUpAndFade 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  min-width: 120px;  /* Increased minimum width to accommodate longer words */
   display: inline-block;
   text-align: center;
-  position: relative; /* Added for better positioning */
-  margin: 0 2px; /* Reduced margin for mobile */
+  position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
-@media (min-width: 640px) {
-  .animate-slide-up {
-    margin: 0 4px; /* Larger margin for desktop */
-  }
-}
