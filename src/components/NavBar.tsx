@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 const NavBar = () => {
@@ -25,12 +26,12 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <img src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%204.png/:/rs=w:1440,h:1440" alt="Logo" className="h-20 w-auto object-contain" />
+            <img src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%204.png/:/rs=w:1440,h:1440" alt="Logo" className="h-12 sm:h-16 md:h-20 w-auto object-contain" />
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            {navItems.map(item => <a key={item.name} href={item.href} className="text-gray-900 hover:text-gray-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+          <div className="hidden md:flex md:items-center md:space-x-4 lg:space-x-8">
+            {navItems.map(item => <a key={item.name} href={item.href} className="text-gray-900 hover:text-gray-600 px-2 lg:px-3 py-2 text-sm font-medium transition-colors duration-200">
                 {item.name}
               </a>)}
           </div>
