@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 const Hero = () => {
   const logoRef = useRef<HTMLImageElement>(null);
@@ -35,14 +34,9 @@ const Hero = () => {
         {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <div className="w-[400px] h-[400px] mx-auto mb-2 overflow-hidden">
-            <img 
-              ref={logoRef} 
-              src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" 
-              alt="Logo" 
-              className="w-full h-full transition-all duration-200 ease-out object-contain" 
-            />
+            <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" alt="Logo" className="w-full h-full transition-all duration-200 ease-out object-contain" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">LET US HELP</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">We'll make it for you.</h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             We transform your ideas into reality with cutting-edge solutions
           </p>
