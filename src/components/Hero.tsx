@@ -14,7 +14,7 @@ const Hero = () => {
         const nextWord = words[currentIndex];
         return nextWord;
       });
-    }, 3000);
+    }, 4000); // Increased to 4 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -56,7 +56,7 @@ const Hero = () => {
             <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" alt="Logo" className="w-full h-full transition-all duration-200 ease-out object-contain" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-            We'll <span key={currentWord} className="inline-block animate-fade-up">{currentWord}</span> it for you.
+            We'll <span key={currentWord} className="animate-slide-up">{currentWord}</span> it for you.
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             We transform your ideas into reality with cutting-edge solutions
