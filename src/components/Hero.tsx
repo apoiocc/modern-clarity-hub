@@ -37,7 +37,7 @@ const Hero = () => {
           <div className="w-[400px] h-[400px] mx-auto mb-2 overflow-hidden">
             <img 
               ref={logoRef} 
-              src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%202.png" 
+              src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" 
               alt="Logo" 
               className="w-full h-full transition-all duration-200 ease-out object-contain" 
             />
