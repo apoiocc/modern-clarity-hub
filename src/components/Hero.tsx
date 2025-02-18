@@ -1,6 +1,24 @@
-import { useEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
+
 const Hero = () => {
   const logoRef = useRef<HTMLImageElement>(null);
+  const [currentWord, setCurrentWord] = useState("make");
+  const words = ["make", "do", "build", "develop", "design", "connect", "handle"];
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % words.length;
+      setCurrentWord((prevWord) => {
+        const nextWord = words[currentIndex];
+        return nextWord;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (logoRef.current) {
@@ -22,6 +40,7 @@ const Hero = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
   return <>
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background Blobs */}
@@ -36,7 +55,9 @@ const Hero = () => {
           <div className="w-[400px] h-[400px] mx-auto mb-2 overflow-hidden">
             <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" alt="Logo" className="w-full h-full transition-all duration-200 ease-out object-contain" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">We'll make it for you.</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+            We'll <span key={currentWord} className="inline-block animate-fade-up">{currentWord}</span> it for you.
+          </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             We transform your ideas into reality with cutting-edge solutions
           </p>
