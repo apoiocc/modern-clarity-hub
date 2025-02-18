@@ -1,11 +1,8 @@
-
 import { useEffect, useRef, useState } from "react";
-
 const Hero = () => {
   const logoRef = useRef<HTMLImageElement>(null);
   const [currentWord, setCurrentWord] = useState("make");
   const words = ["make", "do", "build", "develop", "design", "connect", "handle"];
-  
   useEffect(() => {
     let currentIndex = 0;
     const interval = setInterval(() => {
@@ -17,24 +14,21 @@ const Hero = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
-
   useEffect(() => {
     const isMobile = window.innerWidth < 768; // md breakpoint
     let animationFrameId: number;
-    
     if (isMobile && logoRef.current) {
       // Enhanced animation for mobile
       let startTime: number;
       const animate = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
         const progress = (timestamp - startTime) / 3000; // Slowed down by dividing by 3000
-        
+
         if (logoRef.current) {
           // Slower but still pronounced movements
           const rotateX = Math.sin(progress * 0.4) * 12 + Math.cos(progress * 0.2) * 8;
           const rotateY = Math.cos(progress * 0.5) * 15 + Math.sin(progress * 0.3) * 10;
           const translateZ = Math.sin(progress * 0.3) * 20;
-          
           logoRef.current.style.transform = `
             perspective(1000px) 
             rotateX(${rotateX}deg) 
@@ -42,10 +36,8 @@ const Hero = () => {
             translateZ(${translateZ}px)
           `;
         }
-        
         animationFrameId = requestAnimationFrame(animate);
       };
-      
       animationFrameId = requestAnimationFrame(animate);
     } else {
       // Desktop mouse movement handling
@@ -53,38 +45,32 @@ const Hero = () => {
       let currentY = 0;
       let targetX = 0;
       let targetY = 0;
-
       const handleMouseMove = (e: MouseEvent) => {
         if (logoRef.current) {
           const rect = logoRef.current.getBoundingClientRect();
           const centerX = rect.left + rect.width / 2;
           const centerY = rect.top + rect.height / 2;
-          
+
           // Calculate target rotation based on mouse position
           targetX = (e.clientY - centerY) / 15;
           targetY = -(e.clientX - centerX) / 15;
         }
       };
-
       const animateLogo = () => {
         if (logoRef.current) {
           // Smooth interpolation
           currentX += (targetX - currentX) * 0.1;
           currentY += (targetY - currentY) * 0.1;
-          
           logoRef.current.style.transform = `
             perspective(1000px) 
             rotateX(${currentX}deg) 
             rotateY(${currentY}deg)
           `;
-          
           animationFrameId = requestAnimationFrame(animateLogo);
         }
       };
-      
       window.addEventListener("mousemove", handleMouseMove);
       animationFrameId = requestAnimationFrame(animateLogo);
-      
       return () => {
         window.removeEventListener("mousemove", handleMouseMove);
         if (animationFrameId) {
@@ -92,14 +78,12 @@ const Hero = () => {
         }
       };
     }
-
     return () => {
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
       }
     };
   }, []);
-
   return <>
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6">
         {/* Animated Background Blobs */}
@@ -116,7 +100,7 @@ const Hero = () => {
           </div>
           <h1 className="sm:text-4xl md:text-6xl text-gray-900 mb-4 sm:mb-6 tracking-tight flex items-center justify-center gap-2 text-3xl font-extrabold">
             <span>We'll</span>
-            <span key={currentWord} className="animate-slide-up inline-block min-w-[80px] sm:min-w-[120px] text-center transition-all duration-300 ease-in-out">
+            <span key={currentWord} className="animate-slide-up inline-block min-w-[80px] sm:min-w-[120px] text-center transition-all duration-300 ease-in-out text-sky-700">
               {currentWord}
             </span>
             <span>it for you.</span>
