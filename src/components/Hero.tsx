@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
@@ -21,16 +22,24 @@ const Hero = () => {
     const isMobile = window.innerWidth < 768; // md breakpoint
     
     if (isMobile && logoRef.current) {
-      // Automatic animation for mobile
+      // Enhanced animation for mobile
       let startTime: number;
       const animate = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
         const progress = (timestamp - startTime) / 1000; // Convert to seconds
         
         if (logoRef.current) {
-          const rotateX = Math.sin(progress) * 5; // 5 degree max rotation
-          const rotateY = Math.cos(progress) * 5; // 5 degree max rotation
-          logoRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          // Increased rotation range and added combined movements
+          const rotateX = Math.sin(progress) * 12 + Math.cos(progress * 0.5) * 8; // More pronounced vertical tilt
+          const rotateY = Math.cos(progress * 1.2) * 15 + Math.sin(progress * 0.7) * 10; // More pronounced horizontal swing
+          const translateZ = Math.sin(progress * 0.8) * 20; // Adding depth movement
+          
+          logoRef.current.style.transform = `
+            perspective(1000px) 
+            rotateX(${rotateX}deg) 
+            rotateY(${rotateY}deg)
+            translateZ(${translateZ}px)
+          `;
         }
         
         requestAnimationFrame(animate);
