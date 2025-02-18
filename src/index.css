@@ -65,5 +65,11 @@
   display: inline-block;
   text-align: center;
   position: relative; /* Added for better positioning */
-  margin: 0 4px; /* Added spacing around the animated word */
+  margin: 0 2px; /* Reduced margin for mobile */
+}
+
+@media (min-width: 640px) {
+  .animate-slide-up {
+    margin: 0 4px; /* Larger margin for desktop */
+  }
 }

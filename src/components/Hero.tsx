@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
@@ -54,7 +53,7 @@ const Hero = () => {
           <div className="w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] mx-auto mb-2 overflow-hidden">
             <img ref={logoRef} src="https://img1.wsimg.com/isteam/ip/e6562235-9460-4d31-90a6-3b2ad94e6ed9/Untitled%203.png/:/rs=w:1440,h:1440" alt="Logo" className="w-full h-full transition-all duration-200 ease-out object-contain" />
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight whitespace-nowrap">
             We'll <span key={currentWord} className="animate-slide-up">{currentWord}</span> it for you.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
